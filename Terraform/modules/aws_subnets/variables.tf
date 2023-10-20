@@ -2,7 +2,7 @@ variable "availability_zone" {
 
 }
 
-variable "cidr_block" {
+variable "cidr_blocks" {
     default = "10.0.1.0/24"
 }
 
