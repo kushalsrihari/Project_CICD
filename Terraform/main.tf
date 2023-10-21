@@ -56,7 +56,7 @@ module "route_table_module" {
     for_each = var.route_table_config
 
     vpc_id = module.vpc_modules[each.value.vpc_name].vpc_id
-    internetGW_id = each.value.private == 0 ? module.internetGW_module[each.value.gateway_name].internetGW_id : module.nat_GW_config[each.value.gateway_name].natGW_id
+    internetGW_id = each.value.private == 0 ? module.internetGW_module[each.value.gateway_name].internetGW_id : module.NatGW_Module[each.value.gateway_name].natGW_id
     tags = each.value.tags 
 }
 
