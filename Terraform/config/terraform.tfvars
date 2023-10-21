@@ -155,3 +155,51 @@ route_table_association_config = {
     }
 
 }
+
+aws_eks_cluster_config = {
+
+    "demo-key" = {
+        eks_cluster_name = "demo-cluster"
+
+        subnet1 = "Public-us-east-1a"
+        subnet2 = "Public-us-east-1b"
+        subnet3 = "Private-us-east-1a"
+        subnet4 = "Private-us-east-1b"
+
+        tags = {
+            "Name" = "demo-cluster"
+        }
+    }
+}
+
+aws_eks_node_group_config = {
+    
+    "node1" = {
+        node_group_name = "node1"
+        eks_cluster_name = "demo-key"
+
+        node_iam_role = "eks_node_genral1"
+
+        subnet1 = "Private-us-east-1a"
+        subnet2 = "Private-us-east-1b"
+
+        tags = {
+            "Name" = "node1"
+        }
+    }
+
+    "node2" = {
+        node_group_name = "node2"
+        eks_cluster_name = "demo-key"
+
+        node_iam_role = "eks_node_genral1"
+
+        subnet1 = "Private-us-east-1a"
+        subnet2 = "Private-us-east-1b"
+
+        tags = {
+            "Name" = "node1"
+        }
+    }
+
+}

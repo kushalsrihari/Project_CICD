@@ -1,8 +1,8 @@
 resource "aws_eks_node_group "eks_node" {
     cluster_name = var.eks_cluster_name
     node_group_name = var.node_group_name
-    node_role_arn = aws_iam_role.eks_node.arn
-    subnet_ids = aws_subnet.example[*].subnet_id
+    node_role_arn = aws_iam_role.node_general.arn
+    subnet_ids = var.subnet_id
 
     scaling_config {
         desired_size = 1
@@ -15,22 +15,18 @@ resource "aws_eks_node_group "eks_node" {
     }
 
     depends_on = [
-        aws_iam_role_policy_attachments.eks_node-AmzonEKSWorkerNodePolicy,
-        aws_iam_role_policy_attachments.eks_node-AmzonEKS_CNI_Policy,
-        aws_iam_role_policy_attachments.eks_node-AmzonEC2ContainerRegistryReadOnly,
+        aws_iam_role_policy_attachments.AmzonEKSWorkerNodePolicy,
+        aws_iam_role_policy_attachments.AmzonEKS_CNI_Policy,
+        aws_iam_role_policy_attachments.AmzonEC2ContainerRegistryReadOnly,
     ]
+
+    tags = var.tags
 }
 
-variable "eks_cluster_name" {
 
-}
 
-variable "node_group_name" {
-
-}
-
-resource "aws_iam_role" "example" {
-  name = "eks-node-group-example"
+resource "aws_iam_role" "node_general" {
+  name = var.node_iam_role
 
   assume_role_policy = jsonencode({
     Statement = [{
@@ -44,17 +40,17 @@ resource "aws_iam_role" "example" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "example-AmazonEKSWorkerNodePolicy" {
+resource "aws_iam_role_policy_attachment" "AmazonEKSWorkerNodePolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
-  role       = aws_iam_role.example.name
+  role       = aws_iam_role.node_general.name
 }
 
-resource "aws_iam_role_policy_attachment" "example-AmazonEKS_CNI_Policy" {
+resource "aws_iam_role_policy_attachment" "AmazonEKS_CNI_Policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-  role       = aws_iam_role.example.name
+  role       = aws_iam_role.node_general.name
 }
 
-resource "aws_iam_role_policy_attachment" "example-AmazonEC2ContainerRegistryReadOnly" {
+resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
-  role       = aws_iam_role.example.name
+  role       = aws_iam_role.node_general.name
 }
