@@ -83,7 +83,7 @@ nat_GW_config = {
         eip_name = "eip01"
         subnet_name = "Public-us-east-1a"
         tags = {
-            "Name" = natgw01
+            "Name" = "natgw01"
         }
     }
 
@@ -91,7 +91,7 @@ nat_GW_config = {
         eip_name = "eip02"
         subnet_name = "Public-us-east-1b"
         tags = {
-            "Name" = natgw02
+            "Name" = "natgw02"
         }   
         
     }
