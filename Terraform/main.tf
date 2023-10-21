@@ -62,7 +62,7 @@ module "route_table_module" {
 
 
 module "route_table_association" {
-    source = "./modules/aws_route_association"
+    source = "./modules/aws_route_table_association"
 
     for_each = var.route_table_association_config
 
