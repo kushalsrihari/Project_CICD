@@ -158,7 +158,7 @@ route_table_association_config = {
 
 aws_eks_cluster_config = {
 
-    "demo-key" = {
+    "demo-cluster" = {
         eks_cluster_name = "demo-cluster"
 
         subnet1 = "Public-us-east-1a"
@@ -176,7 +176,7 @@ aws_eks_node_group_config = {
     
     "node1" = {
         node_group_name = "node1"
-        eks_cluster_name = "demo-key"
+        eks_cluster_name = "demo-cluster"
 
         node_iam_role = "eks_node_genral1"
 
@@ -190,7 +190,7 @@ aws_eks_node_group_config = {
 
     "node2" = {
         node_group_name = "node2"
-        eks_cluster_name = "demo-key"
+        eks_cluster_name = "demo-cluster"
 
         node_iam_role = "eks_node_genral1"
 

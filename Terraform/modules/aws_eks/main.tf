@@ -14,8 +14,8 @@ resource "aws_eks_cluster" "example" {
     tags = var.tags
 }
 
-resource "aws_iam_role" "eks_role" {
-    name = "eks_role"
+resource "aws_iam_role" "eks_cluster" {
+    name = "eks_cluster"
     assume_role_policy = <<POLICY
     {
         "Version" : "2012-10-17",
@@ -34,11 +34,11 @@ resource "aws_iam_role" "eks_role" {
 
 resource "aws_iam_role_policy_attachment" "AmzonEKSClusterPolicy" {
     policy_arn = "arn:aws:iam::policy//AmzonEKSClusterPolicy"
-    role = aws_iam_role.eks_role.name
+    role = aws_iam_role.eks_cluster.name
 }
 
 resource "aws_iam_role_policy_attachment" "AmzonEC2ContainerRegistryReadOnly" {
     policy_arn = "arn:aws:iam::policy//AmzonEKSVPCResouceController"
-    role = aws_iam_role.eks_role.name
+    role = aws_iam_role.eks_cluster.name
 }
 
