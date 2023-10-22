@@ -14,7 +14,7 @@ resource "aws_eks_cluster" "example"{
     tags = var.tags
 }
 
-resource "aws_iam_role" "eks_cluster" {
+resource "aws_iam_role" "eks_cluster"{
     name = "eks_cluster"
     assume_role_policy = <<POLICY
     {
