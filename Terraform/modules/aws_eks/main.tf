@@ -8,7 +8,7 @@ resource "aws_eks_cluster" "example"{
 
     depends_on = [
         aws_iam_role_policy_attachment.AmzonEKSClusterPolicy,
-        aws_iam_role_policy_attachment.AmzonEKSVPCResouceController,
+        aws_iam_role_policy_attachment.AmzonEC2ContainerRegistryReadOnly,
     ]
 
     tags = var.tags
