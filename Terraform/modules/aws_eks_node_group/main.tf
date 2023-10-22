@@ -18,8 +18,8 @@ resource "aws_eks_node_group" "example" {
 
     depends_on = [
         aws_iam_role_policy_attachments.AmazonEKSWorkerNodePolicy,
-        aws_iam_role_policy_attachments.AmzonEKS_CNI_Policy,
-        aws_iam_role_policy_attachments.AmzonEC2ContainerRegistryReadOnly,
+        aws_iam_role_policy_attachments.AmazonEKS_CNI_Policy,
+        aws_iam_role_policy_attachments.AmazonEC2ContainerRegistryReadOnly,
     ]
 
     tags = var.tags
