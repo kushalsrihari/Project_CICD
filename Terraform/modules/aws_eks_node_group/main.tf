@@ -13,10 +13,11 @@ resource "aws_eks_node_group" "example" {
     update_config {
         max_unavailable = 1
     }
-    instance_type = ["t3.medium"]
+
+    instance_types = ["t3.medium"]
 
     depends_on = [
-        aws_iam_role_policy_attachments.AmzonEKSWorkerNodePolicy,
+        aws_iam_role_policy_attachments.AmazonEKSWorkerNodePolicy,
         aws_iam_role_policy_attachments.AmzonEKS_CNI_Policy,
         aws_iam_role_policy_attachments.AmzonEC2ContainerRegistryReadOnly,
     ]
