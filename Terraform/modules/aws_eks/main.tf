@@ -20,7 +20,7 @@ resource "aws_iam_role" "eks_cluster"{
     assume_role_policy = <<POLICY
 {
     "Version": "2012-10-17",
-    Statement": [
+    "Statement": [
         {
             "Effect": "Allow",
             "Principal": {
