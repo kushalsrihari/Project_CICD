@@ -17,9 +17,9 @@ resource "aws_eks_node_group" "example" {
     instance_types = ["t3.medium"]
 
     depends_on = [
-        aws_iam_role_policy_attachments.example-AmazonEKSWorkerNodePolicy,
-        aws_iam_role_policy_attachments.example-AmazonEKS_CNI_Policy,
-        aws_iam_role_policy_attachments.example-AmazonEC2ContainerRegistryReadOnly,
+        aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy,
+        aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy,
+        aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly,
     ]
 
     tags = var.tags
