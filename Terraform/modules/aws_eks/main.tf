@@ -21,11 +21,11 @@ resource "aws_iam_role" "eks_cluster" {
         "Version" : "2012-10-17",
         Statement" : [
             {
-                "Effect" : "Allow",
-                "Principal" : {
-                    "Service" : "eks.amzonaws.com"
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": "eks.amazonaws.com"
                 },
-                "Action" : "sts:AssumeRole"
+                "Action": "sts:AssumeRole"
             }
         ]
     }
